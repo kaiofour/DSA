@@ -25,12 +25,24 @@ bool isEmpty(Queue q) {
 }
 
 
-void display(Queue q) {
-    // while () {
-        
-    // }
+// void display(Queue q) {
+   
+// }
+
+
+bool enqueue(Queue *q, Data d){
+    NodePtr demo = malloc(sizeof(NodeType));
+    if (demo == NULL) {
+        printf("Malloc not allocated\n");
+        return false;
+    }
+    demo->elem = d;
+    demo->link = NULL;
+    
+    //enqueue?
+
+      
 }
-bool enqueue(Queue *q, Data d);
 
 bool dequeue(Queue *q) {
     if (!isEmpty(*q)) {

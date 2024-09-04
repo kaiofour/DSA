@@ -6,7 +6,6 @@
 #include <string.h>
 #include <stdbool.h>
 
-
 typedef struct { 
     char fname[20];
     char lname[20];
