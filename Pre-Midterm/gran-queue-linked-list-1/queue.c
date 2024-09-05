@@ -9,6 +9,23 @@
 
 
 //set 
+Name createName(String fname, String lname) {
+    Name temp;
+    strcpy(temp.fname, fname);
+    strcpy(temp.lname, lname);
+    return temp;
+}
+
+Student createStudent(int studID, Name studName, char sex, String program) {
+    Student temp;
+    temp.studID = studID;
+    temp.studName = createName(temp.studName.fname, temp.studName.lname);
+    temp.sex = sex;
+    strcpy(temp.program, program);
+
+    return temp;
+}
+
 void initQueue(Queue *q) {
     q->head = NULL;
     q->tail = NULL;
@@ -25,9 +42,13 @@ bool isEmpty(Queue q) {
 }
 
 
-// void display(Queue q) {
-   
-// }
+void display(Queue q) { //visualize
+    NodePtr curr = q.head;
+    while (curr != NULL) {
+        printf("Program: %s, Sex: %c, Name: %s %s\n", curr->elem.program, curr->elem.sex, curr->elem.studName.fname, curr->elem.studName.lname);
+        curr = curr->link;
+    }
+}
 
 
 bool enqueue(Queue *q, Data d){
@@ -80,20 +101,19 @@ void makeNull(Queue *q) {
         q->head = q->head->link;
         free(temp);
     }
-    q->tail = NULL
+    q->tail = NULL;
 }
 
-// Searches for a student with a specific program and sex in the queue
-Name *getStudent(Queue q, String program, char sex) {
-    NodePtr curr = q.head;
-    while (curr != NULL) {
-        if (strcmp(curr->elem.program, program) == 0 && curr->elem.sex == sex) {
-            return &curr->elem; // return the matching student's data
-        }
-        curr = curr->link;
-    }
-    return NULL; // not found
-}
+// Name *getStudent(Queue q, String program, char sex) {
+//     NodePtr curr = q.head;
+//     while (curr != NULL) {
+//         if (strcmp(curr->elem.program, program) == 0 && curr->elem.sex == sex) {
+//             return &curr->elem; // return the matching student's data
+//         }
+//         curr = curr->link;
+//     }
+//     return NULL; // not found
+// }
 
 // Inserts a new element d into the queue in a sorted manner
 bool insertSorted(Queue *q, Data d) {

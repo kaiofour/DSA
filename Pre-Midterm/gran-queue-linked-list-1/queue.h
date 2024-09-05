@@ -6,9 +6,21 @@
 #include <string.h>
 #include <stdbool.h>
 #include "MyData.h"
+typedef char String[20];
 
+    //Data Structure
+// typedef struct { 
+//     char fname[20];
+//     char lname[20];
+// } Name;
 
-//Data Structure
+// typedef struct {
+//     int studID;
+//     Name studName;
+//     char sex;
+//     char program[10];
+// } Student, Data;
+
 typedef struct node {
     Data elem;
     struct node *link;
@@ -20,14 +32,12 @@ typedef struct {
 } Queue;
 
 
-
-
-
-typedef char String[20];
+Name createName(String fname, String lname);
+Student createStudent(int studID, Name studName, char sex, String program);
 void initQueue(Queue *q);
 Queue createQueue();
 bool isEmpty(Queue q);
-void display(Queue q);
+void display(Queue q); 
 bool enqueue(Queue *q, Data d);
 bool dequeue(Queue *q);
 Data front(Queue q);

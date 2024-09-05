@@ -18,4 +18,14 @@ typedef struct {
     char program[10];
 } Student, Data;
 
+// typedef struct node {
+//     Data elem;
+//     struct node *link;
+// } NodeType, *NodePtr;
+
+// typedef struct {
+//     NodePtr head;
+//     NodePtr tail;
+// } Queue;
+
 #endif
