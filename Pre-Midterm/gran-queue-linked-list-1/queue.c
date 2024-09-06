@@ -19,7 +19,7 @@ Name createName(String fname, String lname) {
 Student createStudent(int studID, Name studName, char sex, String program) {
     Student temp;
     temp.studID = studID;
-    temp.studName = createName(temp.studName.fname, temp.studName.lname);
+    temp.studName = studName;
     temp.sex = sex;
     strcpy(temp.program, program);
 
