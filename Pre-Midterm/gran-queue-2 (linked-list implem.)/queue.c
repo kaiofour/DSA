@@ -70,7 +70,7 @@ bool enqueue(Queue *q, Data d){
     return true;
 }
 
-bool dequeue(Queue *q) {
+bool dequeue(Queue *q) { //delete front?
     if (!isEmpty(*q)) {
         NodePtr temp = q->head;
         q->head = q->head->link;
