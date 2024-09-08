@@ -32,6 +32,9 @@ typedef struct {
 } Queue;
 
 
+/**
+ * LINKED LIST IMPLEMENTATION FUNCTION PROTOTYPES
+ */
 Name createName(String fname, String lname);
 Student createStudent(int studID, Name studName, char sex, String program);
 void initQueue(Queue *q);

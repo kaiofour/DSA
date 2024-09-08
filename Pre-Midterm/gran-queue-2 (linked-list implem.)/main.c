@@ -12,9 +12,13 @@ int main() {
 
     Queue q = createQueue();
 
+    
+
     enqueue(&q, createStudent(12345678, createName("Trent", "Guevara"), 'M', "BSIT"));
     enqueue(&q, createStudent(23101122, createName("Russel", "Cantagas"), 'M', "BSIT"));
     enqueue(&q, createStudent(23456789, createName("Walter", "Caballero"), 'M', "BSIT"));
+
+    
     
     printf("Queue - FIFO: First in First Out Principle\n");
     display(q);
@@ -35,7 +39,7 @@ int main() {
 }
 
 //init queue & create queue  (implementation, done)
-//enqueue (implementation, done) //need to understand this a bit more
+//enqueue (implementation, done) 
 //front (implementation, done)
 //dequeue
 //isEmpty

@@ -6,7 +6,9 @@
 #include "queue.h"
 #include "MyData.h"
 
-
+    /**
+ * LINKED LIST IMPLEMENTATION FUNCTION DEFINITIONS
+ */
 
 //set 
 Name createName(String fname, String lname) {
@@ -53,24 +55,24 @@ void display(Queue q) { //visualize
 
 bool enqueue(Queue *q, Data d){
     NodePtr demo = malloc(sizeof(NodeType));
-    if (demo == NULL) {
+    if (demo == NULL) {  // checks if memory allocation was successfull or not
         printf("Malloc not allocated\n");
         return false;
     }
-    demo->elem = d;
-    demo->link = NULL;
+    demo->elem = d;     // insert data
+    demo->link = NULL;  // sets demo's(node) next to NULL
     
     if (isEmpty(*q)) {
         q->head = demo;
         q->tail = demo;
     } else {
         q->tail->link = demo;
-        q->tail = demo;
+        q->tail = demo; // sets tail also in case of another case
     }
     return true;
 }
 
-bool dequeue(Queue *q) { //delete front?
+bool dequeue(Queue *q) { // delete front?
     if (!isEmpty(*q)) {
         NodePtr temp = q->head;
         q->head = q->head->link;
