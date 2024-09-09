@@ -42,11 +42,11 @@ int main() {
 //enqueue (implementation, done) 
 //front (implementation, done)
 //dequeue
-//isEmpty
+//isEmpty (check)
 //enqueue
 //insertSorted
 //insertSorted
 //insertSorted
 //getStudent
-//makeNull
+//makeNull (more or less understood)
 //free memory for queue
