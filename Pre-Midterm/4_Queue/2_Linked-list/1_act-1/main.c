@@ -41,7 +41,7 @@ int main() {
 //init queue & create queue  (implementation, done)
 //enqueue (implementation, done) 
 //front (implementation, done)
-//dequeue
+//dequeue 
 //isEmpty (check)
 //enqueue
 //insertSorted

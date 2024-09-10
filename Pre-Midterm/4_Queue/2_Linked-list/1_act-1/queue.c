@@ -75,11 +75,11 @@ bool enqueue(Queue *q, Data d){
 bool dequeue(Queue *q) { // delete front?
     if (!isEmpty(*q)) {
         NodePtr temp = q->head;
-        q->head = q->head->link;
+        q->head = q->head->link; //store the 2nd node(q->head->link) inside the queue in the node-pointer(q->head)
         if (q->head == NULL) {
             q->tail = NULL;
         }
-        free(temp);
+        free(temp); //deletes temp(original first node of the queue)
         return true;
     }
     return false;
@@ -98,7 +98,7 @@ Data front(Queue q) {
  // empties the queue without using dequeue
 void makeNull(Queue *q) {
     NodePtr temp;
-    while(!isEmpty(*q)) {
+    while(!isEmpty(*q)) { //basically like dequeue but do it all over again until queue is empty
         temp = q->head;
         q->head = q->head->link;
         free(temp);
@@ -119,12 +119,12 @@ void makeNull(Queue *q) {
 
 // Inserts a new element d into the queue in a sorted manner
 bool insertSorted(Queue *q, Data d) {
-    NodePtr newNode = malloc(sizeof(NodeType));
-    if (newNode == NULL) {
+    NodePtr newNode = malloc(sizeof(NodeType)); //create node(nodeptr)
+    if (newNode == NULL) { //checking if node is allocated or not
         printf("Malloc not allocated\n");
         return false;
     }
-    newNode->elem = d;
+    newNode->elem = d; //sets data and its link to null
     newNode->link = NULL;
 
     if (isEmpty(*q) || strcmp(d.program, q->head->elem.program) <= 0) {
@@ -148,3 +148,26 @@ bool insertSorted(Queue *q, Data d) {
     }
     return true;
 }
+
+// trent's insertSorted 
+// void insertSorted(Queue *q, Data d){
+
+//     Queue tempQ = createQueue();
+
+//     while(d.studID > q->head->elem.studID){
+//         enqueue(&tempQ, front(q));
+//         dequeue(q);
+//     }
+
+//     enqueue(&tempQ, d);
+
+//     while(q->head){
+//         enqueue(&tempQ, front(q));
+//         dequeue(q);
+//     }
+
+//     while(!isEmpty(tempQ)){
+//         enqueue(q, front(&tempQ));
+//         dequeue(&tempQ);
+//     }
+// }
