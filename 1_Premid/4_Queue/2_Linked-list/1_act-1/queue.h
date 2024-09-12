@@ -38,7 +38,7 @@ typedef struct {
 Name createName(String fname, String lname);
 Student createStudent(int studID, Name studName, char sex, String program);
 void initQueue(Queue *q);
-Queue createQueue();
+Queue createQueue(Queue *q);
 bool isEmpty(Queue q);
 void display(Queue q); 
 bool enqueue(Queue *q, Data d);

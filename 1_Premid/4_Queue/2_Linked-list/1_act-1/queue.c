@@ -33,7 +33,7 @@ void initQueue(Queue *q) {
     q->tail = NULL;
 }
 
-Queue createQueue() {
+Queue createQueue(Queue *q) {
     Queue q;
     initQueue(&q);
     return q;

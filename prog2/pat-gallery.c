@@ -7,7 +7,7 @@ typedef struct photo{
 char filename[FILENAME_LIMIT];
 struct photo *next;
 }phototype;
-typedef phototype *gallery;
+typedef phototype *gallery; // pointer to node
 
 bool addNewPhoto(gallery *my_gallery, char *photo_filename);
 int removeAllNonPhotos(gallery *my_gallery);

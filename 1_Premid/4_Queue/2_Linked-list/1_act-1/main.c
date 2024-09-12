@@ -10,7 +10,7 @@
 
 int main() {
 
-    Queue q = createQueue();
+    Queue q = createQueue(&q);
 
     
 
