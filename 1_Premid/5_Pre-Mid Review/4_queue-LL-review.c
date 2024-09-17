@@ -3,14 +3,75 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "queue.h"
-#include "MyData.h"
-
-    /**
- * LINKED LIST IMPLEMENTATION FUNCTION DEFINITIONS
+/**
+ * @data_structure
  */
+typedef struct { 
+    char fname[20];
+    char lname[20];
+} Name;
 
-//set 
+typedef struct {
+    int studID;
+    Name studName;
+    char sex;
+    char program[10];
+} Student, Data;
+
+typedef struct node {
+    Data elem;
+    struct node *link;
+} NodeType, *NodePtr;
+
+typedef struct {
+    NodePtr head;
+    NodePtr tail;
+} Queue;
+
+/**
+ * @function_prototypes
+ */
+Name createName(String fname, String lname);
+Student createStudent(int studID, Name studName, char sex, String program);
+void initQueue(Queue *q);
+Queue createQueue(Queue *q);
+bool isEmpty(Queue q);
+void display(Queue q); 
+bool enqueue(Queue *q, Data d);
+bool dequeue(Queue *q);
+Data front(Queue q);
+void makeNull(Queue *q);
+Name *getStudent(Queue q, String program, char sex);
+bool insertSorted(Queue *q, Data d);
+
+
+/**
+ * @main_function
+ */
+int main() {
+    Queue q = createQueue(&q);
+
+    enqueue(&q, createStudent(12345678, createName("Trent", "Guevara"), 'M', "BSIT"));
+    enqueue(&q, createStudent(23101122, createName("Russel", "Cantagas"), 'M', "BSIT"));
+    enqueue(&q, createStudent(23456789, createName("Walter", "Caballero"), 'M', "BSIT"));
+
+    printf("Queue - FIFO: First in First Out Principle\n");
+    display(q);
+
+    //calling function for queue front implmentation 
+    Data frontNode = front(q);
+    printf("\n\nData in front of the Queue || ID: %-10d | NAME: %-10s, %-13s | SEX: %-3C | PROGRAM: %-8s\n", 
+                                                                        frontNode.studID, //stud_id
+                                                                        frontNode.studName.lname, //lastname
+                                                                        frontNode.studName.fname, //fname
+                                                                        frontNode.sex, //sex
+                                                                        frontNode.program); //program                                                  
+    return 0;
+}
+
+/**
+ * @function_definitions
+ */
 Name createName(String fname, String lname) {
     Name temp;
     strcpy(temp.fname, fname);
@@ -150,25 +211,21 @@ bool insertSorted(Queue *q, Data d) {
     return true;
 }
 
-// trent's insertSorted 
-// void insertSorted(Queue *q, Data d){
+void insertSorted2(Queue *q, Data d){
 
-//     Queue tempQ = createQueue();
+    Data temp;
 
-//     while(d.studID > q->head->elem.studID){
-//         enqueue(&tempQ, front(q));
-//         dequeue(q);
-//     }
+    while(d.studID > front(*q).studID){
+        temp = front(*q);
+        dequeue(q);
+        enqueue(q, temp);
+    }
 
-//     enqueue(&tempQ, d);
+    enqueue(q, d);
 
-//     while(q->head){
-//         enqueue(&tempQ, front(q));
-//         dequeue(q);
-//     }
-
-//     while(!isEmpty(tempQ)){
-//         enqueue(q, front(&tempQ));
-//         dequeue(&tempQ);
-//     }
-// }
+    while(front(*q).studID > d.studID){
+        temp = front(*q);
+        dequeue(q);
+        enqueue(q, temp);
+    }
+}
