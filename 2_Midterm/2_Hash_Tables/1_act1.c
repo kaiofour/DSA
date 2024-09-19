@@ -65,8 +65,6 @@ int main() {
     visualizeTable(ht);
 
     return 0;
-
-    return 0;
 }
 
 
@@ -82,7 +80,10 @@ int getHash(Student s) {
     return hash % 20;
 }
 /**
- * Get the Hash based on the summation of the first 3 letters of the name plus the letters in the program and must be able to return a value from 0-19.
+ * Get the Hash based on the summation of the first
+ * 3 letters of the name plus the letters in the
+ * program and must be able to return a value from
+ * 0-19.
  */
 
 void initDictionary(HashTable *ht) {
