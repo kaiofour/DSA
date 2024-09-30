@@ -24,7 +24,7 @@ typedef struct node{
 
 typedef struct {
     NodePtr elems[20];
-    int count
+    int count;
 } HashTable;
 
 
