@@ -3,14 +3,14 @@
 #include <stdbool.h>
 
 typedef struct{
-    int *elems; //present = 1, = absent = 0
-    int count;
-    int max;
+    int *elems; //present = 1, = absent = 0 //change to char *elems or bool *elems;
+    int count; // number of elements in the set
+    int max; // maximum number of elements
 } Set;
 
 /**@new activity
  * typedef char Set;
- * 
+ * typedef int set?
  */
 
 Set createSet(int max); //done
