@@ -23,8 +23,7 @@ int main() {
     
     verify(insertTrav(&tree, 222));
     verify(insertTrav(&tree, 111));
-    printf("\nRoot = %d\n", tree->data);
-    printf("Left = %d\n", tree->left->data);
+    //preOrder(&tree);
    
     /**
      * yepyep
@@ -36,9 +35,8 @@ int main() {
 
     verify(insertRecur(&tree2, 222));
     verify(insertRecur(&tree2, 111));
-    printf("\nRoot = %d\n", tree2->data);
-    printf("Left = %d\n", tree2->left->data);
-
+    
+    preOrder(&tree2);
 
     return 0;
 }
@@ -56,10 +54,6 @@ NodePtr newBranch(int data) {
     return tNode;
 }
 
-void verify(bool truth) {
-    printf("%s", truth == true ? "Succeeded\n" : "Fail\n");
-}
-
 bool insertTrav(NodePtr *tNode, int data) {
     bool truth;
     NodePtr *trav = tNode;
@@ -68,7 +62,7 @@ bool insertTrav(NodePtr *tNode, int data) {
     }
 
     *trav = newBranch(data);
-    truth = true;
+    truth = true; 
 
     return truth;
 }
@@ -87,6 +81,10 @@ bool insertRecur(NodePtr *tNode, int data) {
     return true;
 }
 
-bool deleteTNode(NodePtr *tNode, int data) {
 
+void preOrderDisplay(NodePtr tree) {
+    while(tree != NULL) {
+        
+    }
 }
+

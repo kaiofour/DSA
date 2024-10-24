@@ -1,4 +1,4 @@
-Got it! Here's the revised explanation without any bold formatting:
+# Debugging Tips:
 
 1. Use compiler warnings: Always compile your code with warnings enabled (e.g., `gcc -Wall -Wextra yourfile.c`). Compiler warnings can help you spot potential issues in your code.
 
