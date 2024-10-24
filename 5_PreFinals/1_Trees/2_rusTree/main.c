@@ -20,7 +20,7 @@ int main()
     insertTrav(&rusTree, 9);
     insertTrav(&rusTree, 10);
 
-
+    displayTree(rusTree);
 
     return 0;
 }

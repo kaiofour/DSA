@@ -36,12 +36,17 @@ bool insertTrav(NodePtr *tree, int data)
     return true;
 }
 
+void displayTree(NodePtr tree)
+{
+    if(tree != NULL)
+    {
+        printf("%d ", tree->data);
+        displayTree(tree->left);
+        displayTree(tree->right);
+    }
+}
+
 bool insertRecur(NodePtr *tree, int data)
 {
     
 }
-
-// bool deleteTNode(NodePtr *tree, int data)
-// {
-
-// }

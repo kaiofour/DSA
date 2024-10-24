@@ -1,10 +1,10 @@
+#ifndef RUS_TREE_H
+#define RUS_TREE_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
-#ifndef RUS_TREE_H
-#define RUS_TREE_H
 
 typedef struct node
 {
@@ -14,12 +14,11 @@ typedef struct node
 } NodeType, *NodePtr;
 
 
-void initTree(NodePtr *tNode);
+void initTree(NodePtr *tree);
 NodePtr newBranch(int data);
-void verify(bool truth);
-bool insertTrav(NodePtr *tNode, int data);
-bool insertRecur(NodePtr *tNode, int data);
-bool deleteTNode(NodePtr *tNode, int data);
+bool insertTrav(NodePtr *tree, int data);
+bool insertRecur(NodePtr *tree, int data);
+bool deleteTNode(NodePtr *tree, int data);
 
 
 #endif
