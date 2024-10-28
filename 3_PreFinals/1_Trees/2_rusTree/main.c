@@ -20,6 +20,8 @@ int main()
     insertTrav(&rusTree, 9);
     insertTrav(&rusTree, 10);
 
+    insertRecur(&rusTree, 20);
+    
     displayTree(rusTree);
 
     return 0;

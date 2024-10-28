@@ -18,7 +18,7 @@ void initTree(NodePtr *tree);
 NodePtr newBranch(int data);
 bool insertTrav(NodePtr *tree, int data);
 bool insertRecur(NodePtr *tree, int data);
-bool deleteTNode(NodePtr *tree, int data);
+bool deleteTreeNode(NodePtr *tree, int data);
 
 
 #endif

@@ -23,11 +23,6 @@ bool insertTrav(NodePtr *tree, int data)
 
     for(trav = tree; (*trav) != NULL;)
     {
-        if((*trav) == NULL)
-        {
-            return false;
-        }
-
         ((*trav)->data > data ? (trav = &(*trav)->left) : (trav = &(*trav)->right));                
     }
 
@@ -36,7 +31,26 @@ bool insertTrav(NodePtr *tree, int data)
     return true;
 }
 
-void displayTree(NodePtr tree)
+bool insertRecur(NodePtr *tree, int data)
+{
+    NodePtr *trav = tree;
+
+    if(*trav == NULL) //meaning empty
+    {
+        *trav = newBranch(data);
+    }
+    else //not empty, keep going to find empty spot
+    {
+        //go left if less, if not right
+        ((data < (*trav)->data) ? (trav = &(*trav)->left) : (trav = &(*trav)->right)); 
+
+        return insertRecur(trav, data);
+    }
+
+    return true;
+}
+
+void displayTree(NodePtr tree) //pre-order display
 {
     if(tree != NULL)
     {
@@ -46,7 +60,14 @@ void displayTree(NodePtr tree)
     }
 }
 
-bool insertRecur(NodePtr *tree, int data)
+bool deleteTreeNode(NodePtr *tree, int data)
 {
+    NodePtr *trav = tree;
+
+    while( ((*trav)->data) != data) //traverse to find matching data
+    {
+        trav = &(*trav)->left;
+        
+    }
     
 }
