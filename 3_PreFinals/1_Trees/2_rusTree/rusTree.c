@@ -1,6 +1,5 @@
 #include "rusTree.h"
 
-
 void initTree(NodePtr *tree)
 {
     (*tree) = NULL;
@@ -60,14 +59,5 @@ void displayTree(NodePtr tree) //pre-order display
     }
 }
 
-bool deleteTreeNode(NodePtr *tree, int data)
-{
-    NodePtr *trav = tree;
 
-    while( ((*trav)->data) != data) //traverse to find matching data
-    {
-        trav = &(*trav)->left;
-        
-    }
-    
-}
+
