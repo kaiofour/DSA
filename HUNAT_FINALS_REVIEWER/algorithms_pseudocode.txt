@@ -1,0 +1,64 @@
+**GRAPH ALGORITHMS**:
+
+Dijkstra's Algorithm (Shortest Path from a Single Source):
+    1. Initialize a distance table with all nodes set to infinity, except the source node (distance = 0).
+    2. Create a priority queue (PQ) to store nodes and their current shortest distance.
+    3. Add the source node to the PQ.
+    4. While the PQ is not empty:
+        a. Extract the node with the smallest distance (current_node).
+        b. For each neighbor of current_node:
+            i. Calculate the new distance as: distance[current_node] + edge_weight.
+            ii. If the new distance is smaller than the stored distance for the neighbor:
+                - Update the neighbor's distance in the table.
+                - Add the neighbor to the PQ.
+    5. Repeat until all nodes are processed or the PQ is empty.
+    6. Return the distance table.
+
+
+
+
+
+
+Floyd-Warshall's Algorithm (All-Pair's Shortest Path):
+    1. Initialize a distance matrix (dist) where:
+        - dist[i][j] = weight of edge (i, j) if it exists.
+        - dist[i][j] = infinity if there's no edge between i and j.
+        - dist[i][i] = 0 for all i.
+    2. For each intermediate node k (1 to |V|):
+        a. For each source node i (1 to |V|):
+            i. For each destination node j (1 to |V|):
+                - Update dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]).
+    3. Return the updated distance matrix (dist).
+
+
+
+
+
+
+Prim's Algorithm: (Finding the Minimum Spanning Tree(MST) of a graph)
+    1. Initializat a priority queue (PQ ) to store edges based on weight
+    2. Pick an arbirary starting vertex and add its edges to the PQ.
+    3. Mark the starting vertex as visited.
+    4. While there are edges in the PQ:
+        a. Extract the edge with the smallest weight.
+        b. If the edge connects to an unvisited vertex:
+            i. Add the edge to the MST.
+            ii. Mark the vertex as visited.
+            iii. Add all edges of this vertex to the PQ (if they connect to unvisited vertices).
+    5. Repeat untill all vertices are visited or the MST containes |V| - 1 edges.
+    6. Return the MST.
+
+
+
+
+
+Kruskal's Algorithm (Minimum Spanning Tree):
+    1. Sort all edges in the graph by their weight (ascending order).
+    2. Initialize a data structure to keep track of connected components (e.g., union-find/disjoint set).
+    3. Initialize an empty list to store the edges of the MST.
+    4. For each edge in the sorted edge list:
+        a. If the edge connects two nodes in different components:
+            i. Add the edge to the MST.
+            ii. Merge the two components.
+    5. Repeat until the MST has |V| - 1 edges (where |V| is the number of vertices).
+    6. Return the MST.
