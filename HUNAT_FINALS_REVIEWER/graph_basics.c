@@ -30,3 +30,11 @@ typedef struct {
     Edge arr[MAX_CONNECTION][MAX_CONNECTION];
     int count;
 } MatrixGraph;
+
+int main()
+{
+
+
+    return 0;
+}
+
